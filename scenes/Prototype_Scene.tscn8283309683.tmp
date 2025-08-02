@@ -1,0 +1,75 @@
+[gd_scene load_steps=7 format=3 uid="uid://ctdn6f1xp84m4"]
+
+[ext_resource type="Script" uid="uid://d1806mxxi6rly" path="res://scripts/main.gd" id="1_r1ojp"]
+[ext_resource type="PackedScene" uid="uid://d2imtef8g24y5" path="res://scenes/player.tscn" id="2_cwk1m"]
+[ext_resource type="PackedScene" uid="uid://cq4op2e2q8npj" path="res://scenes/interactables/CoffeeMachine.tscn" id="3_cwk1m"]
+[ext_resource type="PackedScene" uid="uid://bs74ibvb5okdp" path="res://scenes/interactables/fridge.tscn" id="4_qx63o"]
+[ext_resource type="PackedScene" uid="uid://l0ullu8r18l1" path="res://scenes/DialogueManager.tscn" id="4_r1ojp"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_qx63o"]
+
+[node name="Day1" type="Node2D"]
+script = ExtResource("1_r1ojp")
+
+[node name="player" parent="." instance=ExtResource("2_cwk1m")]
+z_index = 5
+position = Vector2(-6, -57)
+
+[node name="CaptionUI" parent="." instance=ExtResource("4_r1ojp")]
+
+[node name="House" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="House"]
+
+[node name="Sprite2D" type="Sprite2D" parent="House/StaticBody2D"]
+modulate = Color(0.842122, 0.861635, 0.98182, 1)
+position = Vector2(70.25, 10)
+scale = Vector2(511.5, 14.5)
+texture = SubResource("CanvasTexture_qx63o")
+
+[node name="Sprite2D5" type="Sprite2D" parent="House/StaticBody2D"]
+modulate = Color(0.842122, 0.861635, 0.98182, 1)
+position = Vector2(410, -107)
+scale = Vector2(511.5, 14.5)
+texture = SubResource("CanvasTexture_qx63o")
+
+[node name="Sprite2D2" type="Sprite2D" parent="House/StaticBody2D"]
+modulate = Color(0.842122, 0.861635, 0.98182, 1)
+position = Vector2(-179, -170)
+rotation = 1.5708
+scale = Vector2(373, 14.5)
+texture = SubResource("CanvasTexture_qx63o")
+
+[node name="Sprite2D4" type="Sprite2D" parent="House/StaticBody2D"]
+modulate = Color(0.842122, 0.861635, 0.98182, 1)
+position = Vector2(52, -1.90735e-06)
+rotation = 1.5708
+scale = Vector2(35.4446, 14.5)
+texture = SubResource("CanvasTexture_qx63o")
+
+[node name="Sprite2D6" type="Sprite2D" parent="House/StaticBody2D"]
+modulate = Color(0.842122, 0.861635, 0.98182, 1)
+position = Vector2(159, -84)
+rotation = 1.5708
+scale = Vector2(58.588, 14.5)
+texture = SubResource("CanvasTexture_qx63o")
+
+[node name="Sprite2D3" type="Sprite2D" parent="House/StaticBody2D"]
+modulate = Color(0.842122, 0.861635, 0.98182, 1)
+position = Vector2(328, -169)
+rotation = 1.5708
+scale = Vector2(373, 14.5)
+texture = SubResource("CanvasTexture_qx63o")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="House/StaticBody2D"]
+position = Vector2(-169, 1)
+polygon = PackedVector2Array(214, 1, 213, -18, 227, -19, 227, 0, 490, -1, 488, -101, 336, -100, 336, -60, 319, -57, 319, -116, 502, -117, 505, 13, -19, 15, -19, -170, -3, -171, -2, 1)
+
+[node name="fridge" parent="." instance=ExtResource("4_qx63o")]
+position = Vector2(-47, -22)
+description = ""
+
+[node name="CoffeeMachine" parent="." instance=ExtResource("3_cwk1m")]
+position = Vector2(11, -30)
+
+[connection signal="body_entered" from="CoffeeMachine" to="fridge" method="_on_coffee_machine_body_entered"]

@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://d2imtef8g24y5"]
+
+[ext_resource type="Script" uid="uid://by62k7drupgfb" path="res://scripts/character_body_2d.gd" id="1_3vyb7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u8vuu"]
+size = Vector2(9, 19)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_3vyb7"]
+
+[node name="player" type="Node2D" groups=["player"]]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." groups=["player"]]
+script = ExtResource("1_3vyb7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(0, -10)
+shape = SubResource("RectangleShape2D_u8vuu")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+modulate = Color(0.50005, 0.523914, 0.832056, 1)
+position = Vector2(0.381462, -9.8449)
+scale = Vector2(-9.83629, -18.6898)
+texture = SubResource("CanvasTexture_3vyb7")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+position = Vector2(0, -34)
+zoom = Vector2(5, 5)
+position_smoothing_enabled = true
+position_smoothing_speed = 20.0

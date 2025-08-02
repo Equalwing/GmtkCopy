@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://bs74ibvb5okdp"]
+
+[ext_resource type="PackedScene" uid="uid://bnyf7s7du02ea" path="res://scenes/interactables/Interactable.tscn" id="1_ipvyg"]
+[ext_resource type="Script" uid="uid://iesi5ebvnqvu" path="res://scripts/interactiveStuff/fridge.gd" id="2_tbwgq"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_sp1gv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tbwgq"]
+size = Vector2(51.901, 91.6455)
+
+[node name="fridge" instance=ExtResource("1_ipvyg")]
+script = ExtResource("2_tbwgq")
+description = "This is a fridge"
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
+modulate = Color(0.974419, 0.976947, 0.994208, 1)
+position = Vector2(0, -3)
+scale = Vector2(42.3076, 80.1445)
+texture = SubResource("CanvasTexture_sp1gv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+position = Vector2(-0.999999, 0)
+shape = SubResource("RectangleShape2D_tbwgq")

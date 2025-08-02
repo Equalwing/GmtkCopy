@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://cq4op2e2q8npj"]
+
+[ext_resource type="PackedScene" uid="uid://bnyf7s7du02ea" path="res://scenes/interactables/Interactable.tscn" id="1_otstu"]
+[ext_resource type="Script" uid="uid://c32bxvn3103un" path="res://scripts/interactiveStuff/coffee_machine.gd" id="2_pf7fg"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_n6dhk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pf7fg"]
+size = Vector2(20, 22)
+
+[node name="CoffeeMachine" instance=ExtResource("1_otstu")]
+script = ExtResource("2_pf7fg")
+description = "This is a coffee machine"
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
+modulate = Color(0.194162, 0.159158, 0.0456973, 1)
+position = Vector2(0, 1)
+scale = Vector2(14, 19.8333)
+texture = SubResource("CanvasTexture_n6dhk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_pf7fg")
